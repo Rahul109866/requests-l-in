@@ -31,6 +31,7 @@ def login_linkedin():
 
         #raise exception if not successful i.e != 200
         response.raise_for_status()
+        print("Login Sucessful")
     
     #this block catches the exception raised in try block and from the error class it finds the error and assigns it to a variable
     except requests.exceptions.RequestException as e:
