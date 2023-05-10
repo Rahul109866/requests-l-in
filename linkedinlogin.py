@@ -2,6 +2,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 #function that has the login credentials and header data  
 def login_credentials():
     #set up dictionaries of login credentials and the header to be fed in the POST() or GET() 
@@ -21,18 +22,22 @@ def login_credentials():
 
 #function to deal with login requests and handling a session
 def login_linkedin():
-    data, headers = login_credentials()
-    #set up a sessions object that will handle the cookie requests and header update for each request made.
-    sessions = requests.Session()
-    sessions.headers.update(headers)
-    response = sessions.post('https://www.linkedin.com/uas/login-submit', data = data)
+    try:
+        data, headers = login_credentials()
+        #set up a sessions object that will handle the cookie requests and header update for each request made.
+        sessions = requests.Session()
+        sessions.headers.update(headers)
+        response = sessions.post('https://www.linkedin.com/uas/login-submit', data = data)
 
-    #small validation block to check if our request was successful
-    if response.status_code == 200:
-        print('Successful')
-    else:
-        print("Unsuccessful")
-        
+        #raise exception if not successful i.e != 200
+        response.raise_for_status()
+    
+    #this block catches the exception raised in try block and from the error class it finds the error and assigns it to a variable
+    except requests.exceptions.RequestException as e:
+        print(f"Login failed {e}")
+  
+
+#a main fucntion to unify the function calls       
 def main():
     login_linkedin()
     
