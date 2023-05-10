@@ -13,7 +13,7 @@ data = {
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
-}  #user-agent allos data to be accessed that is prevented by the website on certain conditions. 
+}  #user-agent allows data to be accessed that is prevented by the website on certain conditions. 
     #user-agents bypass it by simulating the required conditions
 
 #set up a sessions object that will handle the cookie requests and header update for each request made.
