@@ -35,3 +35,5 @@ def login_linkedin():
         
 def main():
     login_linkedin()
+    
+main()
