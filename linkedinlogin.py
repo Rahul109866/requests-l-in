@@ -2,6 +2,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+#---------------------------------------------------------------------------------------------
 
 #function that has the login credentials and header data  
 def login_credentials():
@@ -19,6 +20,7 @@ def login_credentials():
         
     return data, headers
 
+#--------------------------------------------------------------------------------------------
 
 #function to deal with login requests and handling a session
 def login_linkedin():
@@ -37,8 +39,9 @@ def login_linkedin():
     except requests.exceptions.RequestException as e:
         print(f"Login failed {e}")
   
+#-------------------------------------------------------------------------------------------
 
-#a main fucntion to unify the function calls       
+#a main function to unify the function calls       
 def main():
     login_linkedin()
     
