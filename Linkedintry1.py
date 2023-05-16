@@ -35,7 +35,7 @@ def login_linkedin():
         sessions.headers.update(headers)
         
         #submit your username and password to the wesbite login
-        response = sessions.post('https://www.linkedin.com/uas/login-submit', data = data)
+        response = sessions.post('https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin', data = data)
 
         #* *raise exception if not successful i.e != 200
         response.raise_for_status()
